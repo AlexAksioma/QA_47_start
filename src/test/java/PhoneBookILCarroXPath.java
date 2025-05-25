@@ -55,4 +55,40 @@ public class PhoneBookILCarroXPath {
         WebElement btnYalla = driver.findElement(By.xpath("//button[@type='submit']"));
         btnYalla.click();
     }
+
+    @Test
+    public void loginPhoneBookPositiveTest(){
+        driver.get("https://telranedu.web.app/home");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        WebElement btnLoginHeader = driver.findElement(By.xpath("//a[text()='LOGIN']"));
+        btnLoginHeader.click();
+        WebElement inputEmail = driver.findElement(By.xpath("//input[@name='email']"));
+        WebElement inputPassword = driver.findElement(By.xpath("//*[@placeholder='Password']"));
+        inputEmail.sendKeys("zxc_mail123@mymail.com");
+        inputPassword.sendKeys("Password123!");
+        WebElement btnLoginForm = driver.findElement(By.xpath("//form/button[1]"));
+        btnLoginForm.click();
+        driver.quit();
+        //driver.close();
+    }
+
+    @Test
+    public void loginILCarroPositiveTest(){
+        driver.get("https://ilcarro.web.app/search");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        WebElement btnLoginHeader = driver.findElement(By.xpath("//a[text()=' Log in ']"));
+        btnLoginHeader.click();
+        WebElement inputEmail = driver.findElement(By.xpath("//input[@id='email']"));
+        WebElement inputEmail_1 = driver.findElement(By.id("email"));
+        WebElement inputPassword = driver.findElement(By.xpath("//input[@autocomplete='current-password']"));
+        inputEmail.sendKeys("bilbo_baggins_12345@mail.com");
+        inputPassword.sendKeys("Password123!");
+        WebElement btnLoginForm = driver.findElement(By.xpath("//form/button"));
+        btnLoginForm.click();
+        driver.close();
+    }
 }
